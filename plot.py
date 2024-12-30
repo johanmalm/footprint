@@ -3,6 +3,7 @@
 import argparse
 import sys
 import matplotlib.pyplot as plt
+import os
 
 class Graph():
     def __init__(self):
@@ -21,7 +22,8 @@ class Graph():
 
     def add_blame_lines(self, who, nr_lines):
         who = {
-            'Hiroaki Yamamoto': 'tokyo4j'
+            'Hiroaki Yamamoto': 'tokyo4j',
+            'Simon Ser': 'emersion',
         }.get(who, who)
 
         if who not in self.blame_lines:
@@ -65,7 +67,7 @@ class Graph():
                 # sort by sum of contributions over all tags, favors early devs
                 key=lambda kv : sum(kv[1]),
                 reverse=True
-            )[:25]
+            )[:35]
         )
         print()
         print(f'  \x1b[1m{"Author":<25s} ' + ' '.join(f'{tag:>6s}' for tag in self.refs) + '\x1b[m')
@@ -97,7 +99,8 @@ def main():
         if not t:
             continue
         graph.add_ref(t)
-        with open('.cache/' + t, 'r', encoding='utf-8') as f:
+        cache_dir = os.getenv("CACHE_DIR")
+        with open(cache_dir + '/' + t, 'r', encoding='utf-8') as f:
             lines = f.read().splitlines()
         for line in lines:
             parts = line.split(maxsplit=2)
