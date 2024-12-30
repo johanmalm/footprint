@@ -1,10 +1,10 @@
-labwc: CACHE_DIR=.cache
+labwc: CACHE_DIR=.cache/labwc
 labwc: REPO_NAME=labwc
 labwc: REPO_URL=https://github.org/labwc/labwc.git
 labwc: REPO_DIRS=src/ include/
 labwc: FOOTPRINT_REFS=0.8.2 0.8.0 0.7.0 0.6.0 0.5.0 0.4.0 0.3.0
 
-wlroots: CACHE_DIR=.cache-wlroots
+wlroots: CACHE_DIR=.cache/wlroots
 wlroots: REPO_NAME=wlroots
 wlroots: REPO_URL=https://gitlab.freedesktop.org/wlroots/wlroots.git
 wlroots: REPO_DIRS=.
