@@ -1,4 +1,0 @@
-This is just a graph-script to give _one_ view of labwc contributor footprint
-on the src/ and include/ directories. It counts `git blame`, so the perspective
-is with emphasis on who last worked on the code.
-
