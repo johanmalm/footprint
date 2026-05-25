@@ -95,7 +95,7 @@ def main():
     graph = Graph()
 
     tags = args.tags.split(' ')
-    for t in sorted(tags[::-1]):
+    for t in sorted(tags, key=lambda s: [int(x) for x in s.split('.')]):
         if not t:
             continue
         graph.add_ref(t)
